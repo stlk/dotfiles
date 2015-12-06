@@ -1,3 +1,8 @@
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=/usr/local/sbin:$PATH
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
