@@ -1,0 +1,2 @@
+alias . dired .
+alias vim find-file $1

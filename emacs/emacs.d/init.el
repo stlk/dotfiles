@@ -1,0 +1,104 @@
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(require 'maio-util)
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+ 
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+
+(defvar my-packages '(auto-compile
+                       starter-kit
+                       starter-kit-lisp
+                       f
+                       s
+                       dash
+                       undo-tree
+                       git-rebase-mode
+                       ace-jump-mode
+                       company
+                       readline-complete
+                       goto-chg
+                       recompile-on-save
+                       clojure-mode
+                       ;clojure-cheatsheet
+                       cider
+                       midje-mode
+                       feature-mode
+                       mustache-mode
+                       yaml-mode
+                       php-mode
+                       js2-mode
+                       js2-refactor
+                       json-mode
+                       web-mode
+                       rpm-spec-mode
+                       ag
+                       dired-details
+                       flycheck
+                       diminish
+                       bookmark+
+                       smartparens
+                       iedit
+                       sackspace
+                       yasnippet
+                       htmlize
+                       ;helm
+                       ;helm-descbinds
+                       ;helm-git-grep
+                       wgrep
+                       eyebrowse
+                       ;evil
+                       ;evil-numbers
+                       ;evil-surround
+                       xclip
+                       magit
+                       gist))
+
+(dolist (p my-packages)
+  (unless (package-installed-p p)
+    (package-install p)))
+
+(require 'auto-compile)
+(auto-compile-on-load-mode 1)
+(auto-compile-on-save-mode 1)
+
+(require 'maio-modeline)
+(require 'maio-ui)
+;(require 'maio-eyebrowse)
+(require 'maio-misc)
+;(require 'maio-evil)
+(require 'maio-shell)
+(require 'maio-eshell)
+(require 'maio-lisp)
+(require 'maio-web)
+;(require 'maio-perl)
+(require 'maio-python)
+;(require 'maio-erlang)
+(require 'maio-clojure)
+(require 'maio-javascript)
+(require 'maio-prog)
+(require 'maio-completion)
+(require 'maio-sql)
+(require 'maio-org)
+(require 'maio-git)
+;(require 'maio-helm)
+(require 'maio-bookmark)
+(require 'maio-dired)
+(require 'maio-erc)
+(require 'maio-keys)
+(require 'maio-iedit)
+(require 'maio-clipboard)
+(require 'maio-modes)
+(require 'maio-experiments)
+;(require 'maio-dojo)
+(require 'maio-local nil t)
+
+(regular-mode)
+(savehist-mode 1)
+
+;(add-to-list 'exec-path "/usr/local/bin")
